@@ -1,4 +1,4 @@
-### Getting start
+### Getting started
 
 Run containers:
 
