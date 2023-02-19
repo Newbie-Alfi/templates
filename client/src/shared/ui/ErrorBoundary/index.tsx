@@ -15,8 +15,7 @@ class ErrorBoundary extends Component<
   IErrorBoundaryState
 > {
   constructor(props: IErrorBoundaryProps) {
-    const { children, content = <ErrorBoundaryContent /> } = props;
-    super({ children, content });
+    super(props);
     this.state = {
       hasError: false,
     };
@@ -28,7 +27,7 @@ class ErrorBoundary extends Component<
 
   render() {
     const { hasError } = this.state;
-    const { children, content } = this.props;
+    const { children, content = <ErrorBoundaryContent /> } = this.props;
 
     return hasError ? content : children;
   }
