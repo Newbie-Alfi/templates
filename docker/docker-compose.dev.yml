@@ -5,11 +5,9 @@ services:
     build:
       context: .
       dockerfile: docker/client/Dockerfile.client.dev
-    image: chronology_client_dev
-    container_name: chronology_client_dev
+    image: client_dev
+    container_name: client_dev
     volumes:
       - ./client:/app
     ports:
       - "3000:3000"
-    depends_on:
-      - server
