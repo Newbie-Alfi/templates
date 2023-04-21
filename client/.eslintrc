@@ -3,13 +3,15 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "airbnb",
+    "airbnb-typescript",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier", "jest"],
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
   },
   "globals": {
     "React": true,
@@ -21,22 +23,18 @@
   },
   "rules": {
     "prettier/prettier": "error",
-
-    "lines-between-class-members": "off",
     "consistent-return": "off",
-
+    // Problem with "of" operator
+    "no-restricted-syntax": ["off"],
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
-
+    "@typescript-eslint/no-shadow": ["error"],
     "react/jsx-filename-extension": [2, { "extensions": [".tsx"] }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/require-default-props": "off",
-
-    // Fixes that parameters in ts-interfaces are underlined as unused
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": ["error"]
+    // Problem with typescript interfaces
+    "react/require-default-props": "off"
   }
 }
