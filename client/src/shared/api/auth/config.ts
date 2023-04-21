@@ -13,10 +13,10 @@ export const auth = axios.create({
 
 auth.interceptors.request.use((conf) => {
   if (conf.headers) {
-    /* eslint-disable*/
     const accessToken = localStorage.getItem("accessToken");
     const bearer = accessToken ? `Bearer ${accessToken}` : undefined;
 
+    /* eslint-disable-next-line */
     conf.headers.Authorization = bearer;
   }
 
