@@ -2,11 +2,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { Loader } from "@shared/ui/Loader";
 import { ROUTE } from "./routes";
+import { SignInForm } from "./Login/SignIn";
+import { SignUpForm } from "./Login/SignUp";
 
 import MainPage from "./Main";
 
-const SignUpPage = lazy(() => import("./SignUp"));
-const SignInPage = lazy(() => import("./SignIn"));
+const LoginPage = lazy(() => import("./Login"));
 const NotFoundPage = lazy(() => import("./NotFound"));
 
 export function Router() {
@@ -15,8 +16,11 @@ export function Router() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path={ROUTE.MAIN} element={<MainPage />} />
-          <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />
-          <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
+          <Route path={ROUTE.LOGIN} element={<LoginPage />}>
+            <Route index element={<SignInForm />} />
+            <Route path={ROUTE.SIGN_IN} element={<SignInForm />} />
+            <Route path={ROUTE.SIGN_UP} element={<SignUpForm />} />
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
