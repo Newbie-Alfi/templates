@@ -22,7 +22,7 @@
     "jest/globals": true
   },
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "consistent-return": "off",
     // Problem with "of" operator
     "no-restricted-syntax": ["off"],
